@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/greetings")
 public class JenkinsDemoApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
@@ -23,7 +22,7 @@ public class JenkinsDemoApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
 		SpringApplication.run(JenkinsDemoApplication.class, args);
 	}
-	@GetMapping("/{name}")
+	@GetMapping("/greetings/{name}")
 	public String greetings(@PathVariable String name) {
 		return "Hello "+name+" successfully completed Jenkins CI/CD setup.";
 	}
