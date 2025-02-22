@@ -56,6 +56,37 @@
 
 	</dependencies>
 
+	<profiles>
+		<!-- Local Development Profile -->
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>  <!-- Runs by default -->
+			</activation>
+			<dependencies>
+				<!-- Add embedded Tomcat only for local -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>compile</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+
+		<!-- Production WAR Profile -->
+		<profile>
+			<id>production</id>
+			<dependencies>
+				<!-- Ensure Tomcat is only provided for external servers -->
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
 			<plugin>
