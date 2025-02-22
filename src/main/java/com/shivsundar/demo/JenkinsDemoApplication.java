@@ -18,13 +18,14 @@ public class JenkinsDemoApplication extends SpringBootServletInitializer {
 		return builder.sources(JenkinsDemoApplication.class);
 	}
 
-	@GetMapping("/{name}")
-	public String greetings(@PathVariable String name) {
-		return "Hello "+name+" successfully completed Jenkins CI/CD setup.";
-	}
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(JenkinsDemoApplication.class, args);
+	}
+	@GetMapping("/{name}")
+	public String greetings(@PathVariable String name) {
+		return "Hello "+name+" successfully completed Jenkins CI/CD setup.";
 	}
 
 }
